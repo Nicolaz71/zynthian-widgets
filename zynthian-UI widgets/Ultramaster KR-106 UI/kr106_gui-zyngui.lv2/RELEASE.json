@@ -1,0 +1,18 @@
+{
+  "version": "0.5.1-tomita-original-r2",
+  "type": "zynthian-ui lv2 widget extension",
+  "target_plugin_uri": "https://kayrock.org/kr106",
+  "widget_uri": "http://zynthian.org/plugins/zyngui/user/kr106-original#touch",
+  "api_version": 1,
+  "widget_file": "zynthian_widget_kr106_gui.py",
+  "requirement": "original KR-106 preinstalled",
+  "contains_dsp": false,
+  "touch_pages": 4,
+  "encoder_groups": 20,
+  "parameters_expected": 56,
+  "tested_on_hardware": true,
+  "based_on": "KR106_GUI_Tomita_Widget_v050.zip",
+  "sha256_widget": "df8ac28f0e6680bf7f680eb2843e091d12aada6cfad2cee5aa41491e01254495",
+  "notes": "Header dynamically fits large labels in touch-navigation layouts. GUI 0.5.1 label unchanged font size; right aligned beside Z; removed v. No audio or control changes.",
+  "hardware_test_note": "User confirmed v0.5.1 (with the header fix) on Zynthian Tomita with the original KR-106."
+}

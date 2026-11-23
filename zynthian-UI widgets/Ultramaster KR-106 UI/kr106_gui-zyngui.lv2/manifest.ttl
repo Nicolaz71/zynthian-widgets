@@ -1,0 +1,13 @@
+@prefix ui: <http://lv2plug.in/ns/extensions/ui#> .
+@prefix zyngui: <http://zynthian.org/ns/lv2/zyngui#> .
+
+# Widget-only extension for the official, already installed KR-106 LV2.
+# It does NOT declare, embed or replace the audio plugin.
+<https://kayrock.org/kr106>
+    ui:ui <http://zynthian.org/plugins/zyngui/user/kr106-original#touch> .
+
+<http://zynthian.org/plugins/zyngui/user/kr106-original#touch>
+    a zyngui:widget ;
+    ui:binary <zynthian_widget_kr106_gui.py> ;
+    zyngui:apiVersion 1 ;
+    zyngui:help <zynthian_widget_kr106_gui.html> .
