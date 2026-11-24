@@ -1,5 +1,5 @@
 {
-  "version": "0.5.1-tomita-original-r2",
+  "version": "0.5.2-tomita-original-r1",
   "type": "zynthian-ui lv2 widget extension",
   "target_plugin_uri": "https://kayrock.org/kr106",
   "widget_uri": "http://zynthian.org/plugins/zyngui/user/kr106-original#touch",
@@ -11,8 +11,8 @@
   "encoder_groups": 20,
   "parameters_expected": 56,
   "tested_on_hardware": true,
-  "based_on": "KR106_GUI_Tomita_Widget_v050.zip",
-  "sha256_widget": "df8ac28f0e6680bf7f680eb2843e091d12aada6cfad2cee5aa41491e01254495",
-  "notes": "Header dynamically fits large labels in touch-navigation layouts. GUI 0.5.1 label unchanged font size; right aligned beside Z; removed v. No audio or control changes.",
-  "hardware_test_note": "User confirmed v0.5.1 (with the header fix) on Zynthian Tomita with the original KR-106."
+  "local_tests_only": false,
+  "based_on": "Ultramaster KR-106 UI v0.5.1",
+  "sha256_widget": "f09db62cd590dc136fb2fb8ef8f3b7d7958525b948408a39e015e090f73432d0",
+  "notes": "Hardware-tested on Zynthian Tomita: direct UP/DOWN page navigation and LEFT/RIGHT group navigation without ALT; all existing touch, rotary controls and Z/native MIDI Learn preserved. This is a UI-only LV2 extension for the original KR-106 DSP."
 }

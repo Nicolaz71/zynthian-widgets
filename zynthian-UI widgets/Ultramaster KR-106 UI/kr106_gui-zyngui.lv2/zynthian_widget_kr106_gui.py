@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Ultramaster KR-106 GUI v0.5.1 - widget for the original LV2 synthesizer.
+"""Ultramaster KR-106 UI v0.5.2 - widget for the original LV2 synthesizer.
 
 LV2 UI extension for the already installed original plugin. Does not manipulate DSP.
 GPL-3.0-or-later. Uses the zynthian_widget_base integration point.
@@ -15,7 +15,7 @@ from zyngui import zynthian_widget_base
 
 MULTI_INSTANCE = True
 PLUGIN_URI = "https://kayrock.org/kr106"
-WIDGET_VERSION = "0.5.1-tomita-original-r2"
+WIDGET_VERSION = "0.5.2-tomita-original-r1"
 
 # JUCE ParameterID p0..p55; indices from the original Source/PluginProcessor.h.
 # Resolve by URI/symbol first, then by unique displayed name (no DSP changes).
@@ -91,7 +91,7 @@ ENCODER_GROUPS = [
     (48, 50, 52, 54),         # HOST/MIDI
 ]
 GROUP_BY_PARAM = {idx: group for group in ENCODER_GROUPS for idx in group}
-# Fixed encoder groups in visual page order for ALT + LEFT/RIGHT navigation.
+# Fixed encoder groups in visual page order for LEFT/RIGHT navigation (no ALT).
 # Reuse the exact same group tuples as touchscreen selection; no new mapping.
 PAGE_ENCODER_GROUPS = tuple(
     tuple(dict.fromkeys(
@@ -522,11 +522,10 @@ class zynthian_widget_kr106_gui(zynthian_widget_base.zynthian_widget_base):
         if not self._custom_nav_visible():
             # Native Z controls (Z / MIDI Learn) retain the normal arrows.
             return False
-        if not getattr(self.zyngui_control, "alt_mode", False):
-            # Unmodified LEFT/RIGHT retain Zynthian instrument navigation.
-            # Unmodified UP/DOWN otherwise select hidden native pages,
-            # triggering full-page redraw flicker.
-            return direction in ("up", "down")
+        # The four physical arrows always navigate inside our own widget.
+        # No ALT modifier is needed. While the native Zynthian control screen
+        # is visible, the guard above returns False so Zynthian retains its
+        # normal arrow handling and MIDI Learn workflow.
         # CUIA callbacks may run in Zynthian's CUIA thread: never touch
         # Tk/Canvas there. Queue geometry/selection work on the Tk loop.
         try:
@@ -540,13 +539,13 @@ class zynthian_widget_kr106_gui(zynthian_widget_base.zynthian_widget_base):
         if not self._custom_nav_visible():
             return
         if direction in ("up", "down"):
-            # ALT + DOWN -> next page (to the right), ALT + UP ->
-            # previous page (to the left). Circular over four pages.
+            # DOWN -> next page; UP -> previous page.
+            # Circular over four pages.
             step = -1 if direction == "up" else 1
             self._set_page((self.page + step) % len(PAGES))
         elif direction in ("left", "right"):
-            # ALT + LEFT/RIGHT -> previous/next encoder group in the
-            # CURRENT page. No DSP parameter is modified by navigation.
+            # LEFT/RIGHT -> previous/next encoder group in the CURRENT page.
+            # No DSP parameter is modified by navigation.
             groups = PAGE_ENCODER_GROUPS[self.page]
             if not groups:
                 return
@@ -780,7 +779,7 @@ class zynthian_widget_kr106_gui(zynthian_widget_base.zynthian_widget_base):
         """Draw text AFTER geometry scaling so font widths are pixel-accurate.
 
         ULTRAMASTER and KR-106 shrink independently only when their allotted
-        space would cause an overlap. Keep 'GUI 0.5.1' at 9 pt, right-aligned
+        space would cause an overlap. Keep 'GUI 0.5.2' at 9 pt, right-aligned
         immediately to the left of the existing Z button.
         """
         sx, sy = width / 800.0, height / 420.0
@@ -790,7 +789,7 @@ class zynthian_widget_kr106_gui(zynthian_widget_base.zynthian_widget_base):
         # Physical pixel padding is intentional: it works at any x scale.
         z_button_left = 433 * sx
         gui_right = z_button_left - 7
-        gui_label = "GUI 0.5.1"
+        gui_label = "GUI 0.5.2"
         gui_font = ("DejaVu Sans", 9, "normal")
         gui_metrics = tkfont.Font(root=self.overlay, family="DejaVu Sans",
                                   size=9, weight="normal")
