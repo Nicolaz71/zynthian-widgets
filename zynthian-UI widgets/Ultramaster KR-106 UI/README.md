@@ -1,4 +1,4 @@
-# Ultramaster KR-106 UI v0.5.1
+# Ultramaster KR-106 UI v0.5.2
 
 Custom touchscreen control widget for the **original Ultramaster KR-106 LV2 synthesizer** on Zynthian **Tomita**.
 
@@ -9,7 +9,7 @@ Custom touchscreen control widget for the **original Ultramaster KR-106 LV2 synt
 - Four pages: SYNTH, ENV, PLAY and SET.
 - Twenty encoder groups and 56 controller positions.
 - Touchscreen sliders, switches, chorus and arpeggiator controls.
-- ALT + left/right to change encoder group; ALT + up/down to change page.
+- Left/right changes encoder group and up/down changes page; **ALT is not required**.
 - Z for the Zynthian native controls and MIDI Learn.
 - First tap on another group only selects that group.
 - Responsive header: ULTRAMASTER and KR-106 shrink only when required, while `GUI 0.5.1` remains beside the Z button.
@@ -40,7 +40,7 @@ The widget detection should show an API v1 widget path within `lv2-widgets/kr106
 
 ## Distribution
 
-Project-specific release tag: **`ultramaster-kr106-ui-v0.5.1`**. Future widgets in this repository should have their own tag prefixes and their own project folders.
+Project-specific release tag: **`ultramaster-kr106-ui-v0.5.2`**. Future widgets in this repository should have their own tag prefixes and their own project folders.
 
 Consult [CHANGELOG.md](CHANGELOG.md), [RELEASE_NOTES.md](RELEASE_NOTES.md), and the detailed [bundle notes](kr106_gui-zyngui.lv2/README.md).
 

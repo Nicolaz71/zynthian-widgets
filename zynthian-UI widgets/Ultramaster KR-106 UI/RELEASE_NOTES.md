@@ -1,13 +1,19 @@
-# Ultramaster KR-106 UI v0.5.1
+# Ultramaster KR-106 UI v0.5.2
 
-First community release of the custom Zynthian Tomita Python/Tk widget for the **original Ultramaster KR-106** LV2 instrument.
+Hardware-tested update for Zynthian Tomita's LV2 widget API v1, targeting the **original** Ultramaster KR-106 (`https://kayrock.org/kr106`).
 
-**Highlights**: Four pages (SYNTH, ENV, PLAY, SET), 20 encoder groups, 56 control slots, hardware ALT navigation, native Zynthian controls/MIDI Learn, dynamic header fitting for Touch Navigation.
+## Changes from 0.5.1
 
-**Requirements**: Zynthian Tomita with ZynGUI LV2 widget API v1 and original KR-106 (`https://kayrock.org/kr106`) installed.
+- Use **UP/DOWN** to navigate between the four interface pages.
+- Use **LEFT/RIGHT** to navigate between encoder groups.
+- ALT is not required; navigation wraps around.
+- Touch controls, physical encoders and Z/native MIDI Learn remain unchanged.
+- Responsive header and four pages (SYNTH, ENV, PLAY, SET) preserved.
 
-**What is included**: Widget LV2 extension only; no plugin audio engine, `.so` binary, preset packs, or patch to Zynthian core.
+## Install
 
-**Installation**: Copy `kr106_gui-zyngui.lv2` into `/zynthian/zynthian-plugins/lv2-widgets/`, touch `/zynthian/config/lv2.stamp`, reopen the control screen. Full instructions in README.md.
+Extract the attached ZIP under `/zynthian/zynthian-plugins/lv2-widgets/`, then touch `/zynthian/config/lv2.stamp` and reopen the controls. Back up the previous `kr106_gui-zyngui.lv2` bundle before replacing it.
 
-**Repository tag:** `ultramaster-kr106-ui-v0.5.1` (a widget-specific tag within the `zynthian-widgets` repository).
+This release contains **only** the Python/Tk LV2 widget. It does not contain an audio plugin, .so binaries, or changes to Zynthian's core.
+
+GitHub release tag: `ultramaster-kr106-ui-v0.5.2`.

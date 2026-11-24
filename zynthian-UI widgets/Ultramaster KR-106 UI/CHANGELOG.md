@@ -1,5 +1,14 @@
 # Changelog — Ultramaster KR-106 UI
 
+## v0.5.2 — 2026-11-24
+
+- **UP/DOWN** now changes pages without pressing ALT.
+- **LEFT/RIGHT** now changes parameter groups without pressing ALT.
+- Cyclic navigation, rotary encoders, touch controls, Z/MIDI Learn and responsive header preserved.
+- Hardware-tested on Zynthian Tomita with the original KR-106 synthesizer.
+- Pure LV2 widget update; no DSP changes.
+
+
 ## v0.5.1 — 2026-11-23
 
 - Initial public release of the widget for the **original** KR-106 LV2 plugin.
